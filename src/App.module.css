@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   height: 100vh;
-  background-color: #606770;
+  background-color: #787e86;
 }
 
 .logo {
@@ -24,18 +24,41 @@
   color: #aad8ff;
 }
 
-.main {
-  /* display: grid;
-  max-width: fit-content;
-   */
+.rrForm {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-areas:
+    "top top top"
+    "loading loading loading"
+    "gathered assessing result";
+  padding: 1rem;
+  column-gap: .5rem;
+  gap: 1rem
 }
 
-.startbutton {
-  font-size: 3rem;
-  color: greenyellow;
-  background-color: black;
-  border-radius: 10px
+.formButton {
+  grid-area: 'submit';
+  align-items: center;
 }
+
+.rrForm>div.top {
+  grid-area: 'top';
+}
+
+.rrForm>div.progress {
+  grid-area: 'loading'
+}
+
+/* 
+Primary Color
+    •    Green (Main): #43A047 — Confidence, clarity, and action.
+Complementary & Supporting Colors
+    1    Deep Charcoal (Text/Contrast): #212121 — Clean, professional base for text.
+    2    Soft Blue (Trust & Tech Feel): #42A5F5 — Balances the green with a calm tech-forward tone.
+    3    Slate Gray (Neutral/Background): #90A4AE — Cool neutral for UI backgrounds or dividers.
+    4    Warm Yellow Accent: #FDD835 — Highlights or call-to-action elements.
+    5    White: #FFFFFF — Clean whitespace support and clarity.
+*/
 
 @keyframes logo-spin {
   from {
