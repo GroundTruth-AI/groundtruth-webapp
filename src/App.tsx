@@ -1,20 +1,25 @@
 import { createSignal, Show, type Component } from 'solid-js';
 
-import logo from './lightbulb_with_clarify_logo.png'
+import logo from './assets/lightbulb_with_clarify_logo_transparent.png'
 import styles from './App.module.css';
-import { Button, CircularProgress, createTheme, LinearProgress, MenuItem, Select, TextField, ThemeProvider } from '@suid/material';
+import AddCircleIcon from '@suid/icons-material/AddCircle';
+import { Button, CircularProgress, createTheme, MenuItem, Select, TextField, ThemeProvider, Toolbar, Typography } from '@suid/material';
 import { customers } from './data';
 
 const theme = createTheme({
   palette: {
     primary: {
       main: '#43A047',
-      light: '#42A5F5'
     },
     secondary: {
       main: '#FDD835',
-      light: '#FFFFFF'
     },
+    text: {
+      primary: '#212121'
+    },
+    background: {
+      paper: '#42A5F5'
+    }
   }
 })
 
@@ -36,17 +41,14 @@ const App: Component = () => {
       <div class={styles.App}>
         <header class={styles.header}>
           <img src={logo} class={styles.logo} alt="logo" />
-          <a
-            class={styles.link}
-            href="https://www.groundtruthai.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by GroundTruth AI
-          </a>
+          <Toolbar variant='dense'>
+            <Button class={styles.menuButton} variant='contained' size='large' color='primary' onClick={() => setShowRRForm(!showRRForm())} >
+              <Typography>Start Rapid Response</Typography>
+              <AddCircleIcon />
+            </Button>
+          </Toolbar>
         </header>
         <div class={styles.main}>
-          <Button variant='contained' size='large' color='primary' onClick={() => setShowRRForm(!showRRForm())}>New Rapid Response +</Button>
           <Show when={showRRForm()}>
             <div class={styles.rrForm}>
               <Select style={{ background: 'whitesmoke' }} value={customers.find((c) => c.id === customerId())} onChange={(event) => setCustomerId(event.target.value)} label='Organization'>
@@ -66,3 +68,14 @@ const App: Component = () => {
 };
 
 export default App;
+
+/*
+          <a
+            class={styles.link}
+            href="https://www.groundtruthai.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Powered by GroundTruth AI
+          </a>
+*/
