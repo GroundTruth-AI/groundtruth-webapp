@@ -9,3 +9,5 @@ export const customers = [
     { id: -1, slug: 'orbit-inc', name: 'Orbit Inc.' },
     { id: -2, slug: 'max-and-obi', name: 'Max & Obi Ltd.' }
 ]
+
+export type AssessmentSentiment = "negative" | "positive"

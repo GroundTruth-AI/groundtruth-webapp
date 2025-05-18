@@ -36,9 +36,9 @@
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-areas:
-    "top top top"
-    "loading loading loading"
-    "gathered assessing result";
+    "top top top top top"
+    "loading loading loading loading loading"
+    "gathered assessing result result result";
   padding: 1rem;
   column-gap: .5rem;
   gap: 1rem
