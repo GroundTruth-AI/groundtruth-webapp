@@ -20,7 +20,7 @@ export default function DemoRRPath() {
     const [assessmentReady, setAssessmentReady] = createSignal(false)
 
     onMount(() => {
-        setTimeout(() => setSetupReady(true), 1000)
+        setTimeout(() => setSetupReady(true), 1500)
     })
 
     // Gather step ready computation
@@ -52,7 +52,7 @@ export default function DemoRRPath() {
                 <Typography variant='h3' gutterBottom>Setup Complete</Typography>
                 <Typography align="left" variant='h6'>{" -  New investigation has been created and attached to the organization's investigations"}</Typography>
                 <Typography align="left" variant='h6'>{" -  Content-gathering will use the provided video to find similar content"}</Typography>
-                <Typography align="left" variant='h6'>{" -  Investigation will assess content for negative assessments about Donald Trump"}</Typography>
+                <Typography align="left" variant='h6'>{" -  Investigation will assess content for negative assessments about Amazon"}</Typography>
             </PathItem>
             <Show when={setupReady()}>
                 <PathItem showContent={gatherReady} id='gather-step'>
@@ -65,7 +65,7 @@ export default function DemoRRPath() {
             <Show when={gatherReady()}>
                 <PathItem showContent={assessmentReady} id='assess-step'>
                     <Typography variant='h3' gutterBottom color={'#43A047'}>Assessing</Typography>
-                    <Typography variant='h5' align="center" color={'#43A047'}>Pay for a subscription and find out all the insights you'll get!</Typography>
+                    <Typography variant='h5' align="center" color={'#43A047'}>Insights and targeting matrix available for paying customers only</Typography>
                 </PathItem>
             </Show>
         </Stack >
