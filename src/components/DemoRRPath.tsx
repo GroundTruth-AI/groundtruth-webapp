@@ -13,8 +13,8 @@ const PathItem = ({ children, showContent, id }: { children?: JSX.Element, showC
     )
 }
 
-
-export default function DemoRRPath() {
+export interface demoProps { sentiment: Accessor<string>, subject: Accessor<string> }
+export default function DemoRRPath({ subject, sentiment }: demoProps) {
     const [setupReady, setSetupReady] = createSignal(false)
     const [gatherReady, setGatherReady] = createSignal(false)
     const [assessmentReady, setAssessmentReady] = createSignal(false)
@@ -52,7 +52,7 @@ export default function DemoRRPath() {
                 <Typography variant='h3' gutterBottom>Setup Complete</Typography>
                 <Typography align="left" variant='h6'>{" -  New investigation has been created and attached to the organization's investigations"}</Typography>
                 <Typography align="left" variant='h6'>{" -  Content-gathering will use the provided video to find similar content"}</Typography>
-                <Typography align="left" variant='h6'>{" -  Investigation will assess content for negative assessments about Amazon"}</Typography>
+                <Typography align="left" variant='h6'>{` -  Investigation will assess content for ${sentiment()} assessments about ${subject()}`}</Typography>
             </PathItem>
             <Show when={setupReady()}>
                 <PathItem showContent={gatherReady} id='gather-step'>

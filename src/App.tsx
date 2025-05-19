@@ -80,7 +80,7 @@ const App: Component = () => {
                 <CircularProgress color='secondary' />
               </Show>
               <Show when={loadingDone()}>
-                <DemoRRPath />
+                <DemoRRPath subject={subject} sentiment={sentiment} />
               </Show>
             </Stack>
           </Show>
